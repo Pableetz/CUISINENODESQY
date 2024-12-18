@@ -1,12 +1,16 @@
 const express = require("express");
 const app = express();
 app.use(express.json());
+const cors = require("cors");
+
+// cors from *
+app.use(cors({ origin: "*" }));
 
 const PORT = 8080;
 
 const mongoose = require("mongoose");
 mongoose
-  .connect("mongodb://localhost:27017/sqycuisine", {})
+  .connect("mongodb://localhost:27017/blogcuisineparis", {})
   .then(() => console.log("Connected to MongoDB"));
 
 const routes = require("./routes");

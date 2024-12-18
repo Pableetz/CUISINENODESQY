@@ -22,7 +22,7 @@ router.put("/update/:id", updateUser);
 router.delete("/delete/:id", deleteUser);
 
 router.post("/recipe", authMiddleware, createRecipe);
-router.get("/recipes", getRecipes);
+router.get("/recipes", authMiddleware, getRecipes);
 router.get("/recipe/:id", getRecipeById);
 router.put("/update/:id", updateRecipe);
 router.delete("/delete/:id", deleteRecipe);

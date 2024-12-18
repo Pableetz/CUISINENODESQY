@@ -9,7 +9,7 @@ const getRecipes = async (req, res) => {
       filter.title = { $regex: req.query.title, $options: "i" };
     }
 
-    const recipes = await Recipe.find(filter);
+    const recipes = await Recipe.find(filter).populate("user", "username");
     res.status(200).send(recipes);
   } catch (error) {
     res.status(400).send({ error: error.message });
